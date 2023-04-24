@@ -1,4 +1,4 @@
-let itemController = require("./sneakerController.js");
+let itemController = require("./maquillajeController.js");
 let personaController = require("./personaController.js");
 
 module.exports = function (app) {
