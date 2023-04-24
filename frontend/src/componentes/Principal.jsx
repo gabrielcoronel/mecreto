@@ -36,8 +36,8 @@ class Principal extends React.Component {
                 >
                     <Tab label="Registrarse" />
                     <Tab label="Iniciar Sesión" />
-                    <Tab label="Guardar un sneaker" />
-                    <Tab label="Lista de sneakers" />
+                    <Tab label="Añadir producto" />
+                    <Tab label="Ver productos" />
                 </Tabs>
 
                 <Box sx={{

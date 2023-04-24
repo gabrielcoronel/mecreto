@@ -18,12 +18,12 @@ class Registrarse extends React.Component {
 
     registrarse = () => {
         axios.post("http://localhost:8080/api/registrarse", this.state)
-          .then(() => alert("Te has registrado"))
+          .then(() => alert("Registrado"))
     }
 
     render() {
         return (
-            <Stack sx={{ padding: "1rem", border: "1px solid silver", borderRadius: "15px" }} spacing={2} width="fit-content" mt={5} alignItems="center">
+            <Stack spacing={2} width="fit-content" mt={5} alignItems="center">
                 <TextField
                     label="Correo"
                     name="correo"
@@ -42,7 +42,7 @@ class Registrarse extends React.Component {
                     variant="contained"
                     onClick={this.registrarse}
                 >
-                  Registrarse
+                  Crear cuenta
                 </Button>
             </Stack>
         );
