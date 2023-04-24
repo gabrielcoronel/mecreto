@@ -20,10 +20,10 @@ class Principal extends React.Component {
 
     render() {
         let paginas = [
-            <Registrarse />,
-            <IniciarSesion />,
             <Guardar />,
-            <Mostrar />
+            <Mostrar />,
+            <Registrarse />,
+            <IniciarSesion />
         ];
 
         return (
@@ -34,10 +34,10 @@ class Principal extends React.Component {
                     centered
                     variant="fullWidth"
                 >
-                    <Tab label="Registrarse" />
-                    <Tab label="Iniciar Sesión" />
                     <Tab label="Añadir producto" />
                     <Tab label="Ver productos" />
+                    <Tab label="Registrarse" />
+                    <Tab label="Iniciar Sesión" />
                 </Tabs>
 
                 <Box sx={{

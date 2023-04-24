@@ -2,11 +2,12 @@ import React from "react";
 import axios from "axios";
 import {
     Typography,
-    Card,
-    CardMedia,
-    CardContent,
-    CardActions,
+    Avatar,
+    ListItem,
+    ListItemAvatar,
+    ListItemText,
     IconButton,
+    Stack
 } from "@mui/material";
 import { Delete, ShoppingCart } from "@mui/icons-material";
 
@@ -26,52 +27,52 @@ function eliminar(id) {
 
 class Articulo extends React.Component {
     render() {
-        return (
-            <Card>
-                <CardMedia
-                    component="img"
-                    height="140"
-                    image={this.props.datos.foto}
-                />
+      return (
+        <ListItem
+        secondaryAction={
+            <Stack direction="row" spacing={1}>
+              <IconButton
+              variant="outlined"
+              onClick={() => comprar(this.props.datos._id)}
+              >
+              <ShoppingCart />
+              </IconButton>
 
-                <CardContent>
-                    <Typography variant="h5">
-                      {this.props.datos.categoria}
-                      {this.props.datos.nombre}
-                    </Typography>
+              <IconButton
+              variant="outlined"
+              onClick={() => eliminar(this.props.datos._id)}
+              >
+              <Delete />
+              </IconButton>
+            </Stack>
+          }
+        >
+          <ListItemAvatar>
+            <Avatar src={this.props.datos.foto} />
+          </ListItemAvatar>
 
-                    <Typography variant="subtitle">
-                      {this.props.datos.precio}
-                    </Typography>
+        <ListItemText>
+          <Typography variant="h5">
+          {this.props.datos.categoria}
+          {this.props.datos.nombre}
+          </Typography>
 
-                    <Typography>
-                      {this.props.datos.descripcion}
-                    </Typography>
+          <Typography variant="subtitle">
+          {this.props.datos.precio}
+          </Typography>
 
-                    {
-                      this.props.datos.comprado ?
-                      <Typography color="red">Comprado</Typography>:
-                      <Typography color="green">Disponible</Typography>
-                    }
-                </CardContent>
+          <Typography>
+          {this.props.datos.descripcion}
+          </Typography>
 
-                <CardActions>
-                    <IconButton
-                        variant="outlined"
-                        onClick={() => comprar(this.props.datos._id)}
-                    >
-                        <ShoppingCart />
-                    </IconButton>
-
-                    <IconButton
-                        variant="outlined"
-                        onClick={() => eliminar(this.props.datos._id)}
-                    >
-                        <Delete />
-                    </IconButton>
-                </CardActions>
-            </Card>
-        );
+          {
+            this.props.datos.comprado ?
+            <Typography color="red">Comprado</Typography>:
+            <Typography color="green">Disponible</Typography>
+          }
+        </ListItemText>
+        </ListItem>
+      );
     }
 };
 

@@ -78,7 +78,6 @@ class Guardar extends React.Component {
                 <Textarea
                   placeholder="Descripción"
                   minRows={4}
-                  variant="outlined"
                   name="descripcion"
                   onChange={this.actualizarFormulario}
                 />
