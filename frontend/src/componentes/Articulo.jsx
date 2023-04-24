@@ -13,14 +13,14 @@ import { Delete, ShoppingCart } from "@mui/icons-material";
 function comprar(id) {
     axios.post("http://localhost:8080/api/comprar", { id })
       .then(function() {
-        alert("Compra realizada");
+        alert("Maquillaje comprado");
       });
 };
 
 function eliminar(id) {
     axios.post("http://localhost:8080/api/eliminar", { id })
       .then(function() {
-        alert("Sneaker eliminado");
+        alert("Maquillaje borrado");
       });
 };
 
@@ -36,13 +36,16 @@ class Articulo extends React.Component {
 
                 <CardContent>
                     <Typography variant="h5">
-                      {this.props.datos.modelo}
-                      {this.props.datos.colorway}
-                      ({this.props.datos.talla})
+                      {this.props.datos.categoria}
+                      {this.props.datos.nombre}
                     </Typography>
 
                     <Typography variant="subtitle">
                       {this.props.datos.precio}
+                    </Typography>
+
+                    <Typography>
+                      {this.props.datos.descripcion}
                     </Typography>
 
                     {

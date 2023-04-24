@@ -21,16 +21,16 @@ class IniciarSesion extends React.Component {
             .then(function (datos) {
               console.log(datos);
               if (datos.data !== null) {
-                alert("Has iniciado sesión");
+                alert("Sesión iniciada");
               } else {
-                alert("Datos incorrectos");
+                alert("No se pudo iniciar sesión");
               }
             });
     }
 
     render() {
         return (
-            <Stack sx={{ padding: "1rem", border: "1px solid silver", borderRadius: "15px" }} spacing={2} width="fit-content" mt={5} alignItems="center">
+            <Stack spacing={2} width="fit-content" mt={5} alignItems="center">
                 <TextField
                     label="Correo"
                     name="correo"

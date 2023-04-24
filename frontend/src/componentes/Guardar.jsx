@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, TextField, IconButton, Button } from "@mui/material";
+import { Textarea } from "@mui/joy";
 import { PhotoCamera } from "@mui/icons-material";
 import { Stack } from "@mui/joy";
 import axios from "axios";
@@ -19,10 +20,10 @@ function encodeFile(file) {
 
 class Guardar extends React.Component {
     state = {
-      modelo: "",
-      talla: "",
-      colorway: "",
+      nombre: "",
       precio: "",
+      descripcion: "",
+      categoria: "",
       foto: ""
     };
 
@@ -46,30 +47,16 @@ class Guardar extends React.Component {
     guardar = () => {
         axios.post("http://localhost:8080/api/guardar", this.state)
           .then(function () {
-            alert("Sneaker guardado");
+            alert("Producto añadido");
           })
     };
 
     render() {
         return (
-            <Stack sx={{ padding: "1rem", border: "1px solid silver", borderRadius: "15px" }} spacing={2}>
+            <Stack spacing={2}>
                 <TextField
-                    label="Modelo"
-                    name="modelo"
-                    type="text"
-                    onChange={this.actualizarFormulario}
-                />
-
-                <TextField
-                    label="Talla"
-                    name="talla"
-                    type="text"
-                    onChange={this.actualizarFormulario}
-                />
-
-                <TextField
-                    label="Colorway"
-                    name="colorway"
+                    label="Nombre"
+                    name="nombre"
                     type="text"
                     onChange={this.actualizarFormulario}
                 />
@@ -79,6 +66,21 @@ class Guardar extends React.Component {
                     name="precio"
                     type="number"
                     onChange={this.actualizarFormulario}
+                />
+
+                <TextField
+                    label="Categoría"
+                    name="categoria"
+                    type="text"
+                    onChange={this.actualizarFormulario}
+                />
+
+                <Textarea
+                  placeholder="Descripción"
+                  minRows={4}
+                  variant="outlined"
+                  name="descripcion"
+                  onChange={this.actualizarFormulario}
                 />
 
                 <Box sx={{
@@ -101,7 +103,7 @@ class Guardar extends React.Component {
                     variant="contained"
                     onClick={this.guardar}
                 >
-                  Guardar
+                  Añadir
                 </Button>
             </Stack>
         );
